@@ -15,4 +15,5 @@ struct Preferences: Codable {
     var temperature: Bool
     var humidity: Bool
     var itinerary: Bool
+    var name: String? = nil
 }

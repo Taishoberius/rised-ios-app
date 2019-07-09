@@ -19,10 +19,13 @@
 		7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485C722C4B86E00F027A4 /* AppStoryboard.swift */; };
 		7F9485CA22C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485C922C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift */; };
 		7F9485D022C4BB9100F027A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9485CF22C4BB9100F027A4 /* Home.storyboard */; };
-		7F9485D222C4BBA300F027A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485D122C4BBA300F027A4 /* HomeViewController.swift */; };
+		7F9485D222C4BBA300F027A4 /* HomePreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485D122C4BBA300F027A4 /* HomePreferencesController.swift */; };
 		7F9485D922C4C00700F027A4 /* Configuration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9485D822C4C00700F027A4 /* Configuration.storyboard */; };
 		7F9485DB22C4C04900F027A4 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485DA22C4C04900F027A4 /* ConfigurationViewController.swift */; };
 		7F9485DD22C4C2D000F027A4 /* SearchErisedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485DC22C4C2D000F027A4 /* SearchErisedViewController.swift */; };
+		7FD8E7C322D3E86A00B16F46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */; };
+		7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */; };
+		7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +43,13 @@
 		7F9485C722C4B86E00F027A4 /* AppStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		7F9485C922C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiViewControllerStoryboardExtended.swift; sourceTree = "<group>"; };
 		7F9485CF22C4BB9100F027A4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		7F9485D122C4BBA300F027A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7F9485D122C4BBA300F027A4 /* HomePreferencesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreferencesController.swift; sourceTree = "<group>"; };
 		7F9485D822C4C00700F027A4 /* Configuration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configuration.storyboard; sourceTree = "<group>"; };
 		7F9485DA22C4C04900F027A4 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		7F9485DC22C4C2D000F027A4 /* SearchErisedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErisedViewController.swift; sourceTree = "<group>"; };
+		7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 				7F9485C922C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift */,
 				7F9485C722C4B86E00F027A4 /* AppStoryboard.swift */,
 				7F43E8B022D1585E00F1C087 /* AppFileManager.swift */,
+				7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -120,7 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				7F9485CF22C4BB9100F027A4 /* Home.storyboard */,
-				7F9485D122C4BBA300F027A4 /* HomeViewController.swift */,
+				7F9485D122C4BBA300F027A4 /* HomePreferencesController.swift */,
+				7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */,
+				7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -213,14 +222,17 @@
 				7F43E8B122D1585E00F1C087 /* AppFileManager.swift in Sources */,
 				7F43E8B322D28B7200F1C087 /* Preferences.swift in Sources */,
 				7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */,
+				7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */,
 				7F9485CA22C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift in Sources */,
+				7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */,
 				7F9485B422C4B0D000F027A4 /* AppDelegate.swift in Sources */,
 				7F33289E22C5832D00DB0F4D /* WifiSetupViewController.swift in Sources */,
 				7F9485DB22C4C04900F027A4 /* ConfigurationViewController.swift in Sources */,
 				7F9485DD22C4C2D000F027A4 /* SearchErisedViewController.swift in Sources */,
 				7F43E8B722D28C3000F1C087 /* TransportType.swift in Sources */,
+				7FD8E7C322D3E86A00B16F46 /* UIColor+Extension.swift in Sources */,
 				7F43E8B522D28BDD00F1C087 /* Address.swift in Sources */,
-				7F9485D222C4BBA300F027A4 /* HomeViewController.swift in Sources */,
+				7F9485D222C4BBA300F027A4 /* HomePreferencesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
