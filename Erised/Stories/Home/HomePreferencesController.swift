@@ -21,48 +21,25 @@ class HomePreferencesController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherButton: UIButton!
+
+    var delegate: PreferencesDelegate?
     
     private var preferencesHasChanged = false
-    private var preferences: Preferences!
+    var preferences: Preferences! {
+        didSet {
+            if oldValue != nil {
+                delegate?.preferencesDidChange(self.preferences)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preferences = fetchPreferences()
          setupUI()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
-
-    private func fetchPreferences() -> Preferences {
-        let preferencesString = AppFileManager.Preferences.getFileContent()
-        if preferencesString.isEmpty {
-            return createDefaultPreferences()
-        }
-
-        guard let data = preferencesString.data(using: .utf8) else {
-            return createDefaultPreferences()
-        }
-
-
-        guard let preferences = try? JSONDecoder().decode(Preferences.self, from: data) else {
-            return createDefaultPreferences()
-        }
-
-        return preferences
-    }
-
-    private func createDefaultPreferences() -> Preferences {
-        let pref = Preferences(weather: 0, address: nil, transporType: .vehicule, temperature: false, humidity: false, itinerary: false, name: nil)
-
-        guard let json = try? JSONEncoder().encode(pref) else {
-            return pref
-        }
-
-        AppFileManager.Preferences.write(String(data: json, encoding: .utf8) ?? "")
-
-        return pref
     }
 
     private func setupUI() {
