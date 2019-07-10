@@ -6,6 +6,6 @@ target 'Erised' do
   use_frameworks!
 
   # Pods for Erised
-  pod 'Firebase/Core'
+  pod 'Alamofire'
 
 end

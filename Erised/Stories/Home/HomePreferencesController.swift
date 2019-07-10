@@ -45,7 +45,7 @@ class HomePreferencesController: UIViewController {
     private func setupUI() {
         setupLabel(tempLabel, userPref: preferences.temperature)
         setupLabel(humidityLabel, userPref: preferences.humidity)
-        setupItinerary(preferences.itinerary, transportType: preferences.transporType)
+        setupItinerary(preferences.itinerary, transportType: TransportType.build(rawValue: preferences.transportType))
         setupWeather()
         buttons.forEach {
             $0.layer.cornerRadius = 15
@@ -106,13 +106,14 @@ class HomePreferencesController: UIViewController {
         preferences.humidity = !preferences.humidity
     }
     private func onItineraryTouched() {
+        let type = TransportType(rawValue: preferences.transportType)
         if !preferences.itinerary {
             preferences.itinerary = !preferences.itinerary
-        } else if preferences.transporType == .vehicule {
-            preferences.transporType = .transport
+        } else if type == .vehicule {
+            preferences.transportType = TransportType.transport.rawValue
         } else {
             preferences.itinerary = false
-            preferences.transporType = .vehicule
+            preferences.transportType = TransportType.vehicule.rawValue
         }
     }
 
