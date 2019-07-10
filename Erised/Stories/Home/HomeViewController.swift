@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
 
     private var isSettingsShowed = true
     private var preferences: Preferences!
+    private var userId: String!
 
     var profileController = AppStoryboard.Home.viewController(viewControllerClass: HomeProfileViewController.self)
     var preferencesController = AppStoryboard.Home.viewController(viewControllerClass: HomePreferencesController.self)
@@ -39,6 +40,7 @@ class HomeViewController: UIViewController {
         preferencesController.preferences = preferences
         preferencesController.delegate = self
         profileController.preferences = preferences
+        profileController.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -52,17 +54,12 @@ class HomeViewController: UIViewController {
     }
 
     private func fetchPreferences() -> Preferences {
+        self.userId = AppFileManager.UserPreferenceId.getFileContent()
         let preferencesString = AppFileManager.Preferences.getFileContent()
-        if preferencesString.isEmpty {
-            return createDefaultPreferences()
-        }
 
-        guard let data = preferencesString.data(using: .utf8) else {
-            return createDefaultPreferences()
-        }
-
-
-        guard let preferences = try? JSONDecoder().decode(Preferences.self, from: data) else {
+        guard !userId.isEmpty,
+            let data = preferencesString.data(using: .utf8),
+            let preferences = try? JSONDecoder().decode(Preferences.self, from: data) else {
             return createDefaultPreferences()
         }
 
@@ -70,14 +67,17 @@ class HomeViewController: UIViewController {
     }
 
     private func createDefaultPreferences() -> Preferences {
-        let pref = Preferences(weather: 0, address: nil, workAddress: nil, transporType: .vehicule, temperature: false, humidity: false, itinerary: false, name: nil, deviceName: UIDevice.current.name)
+        let pref = Preferences()
+        Service.instance.createPreference(preference: pref) {
+            if let id = $0 {
+                AppFileManager.UserPreferenceId.write(id)
+            }
+        }
 
         guard let json = try? JSONEncoder().encode(pref) else {
             return pref
         }
-
         AppFileManager.Preferences.write(String(data: json, encoding: .utf8) ?? "")
-
         return pref
     }
 
@@ -141,6 +141,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: PreferencesDelegate {
     func preferencesDidChange(_ preferences: Preferences) {
-        //do stuff
+        self.preferences = preferences
+        //show validate button
     }
 }

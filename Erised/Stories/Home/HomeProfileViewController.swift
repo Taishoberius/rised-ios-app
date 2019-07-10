@@ -20,9 +20,15 @@ class HomeProfileViewController: UIViewController {
     @IBOutlet var labels: [UILabel]!
     @IBOutlet var fields: [UITextField]!
 
-    var preferences: Preferences!
+    var preferences: Preferences! {
+        didSet {
+            delegate?.preferencesDidChange(self.preferences)
+        }
+    }
     private var textFieldShowed: UITextField?
     private var frameChanged =  false
+
+    var delegate: PreferencesDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,5 +81,19 @@ extension HomeProfileViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         textFieldShowed = textField
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == name {
+            preferences.name = textField.text ?? ""
+        }
+
+        if textField == homeAddress || textField == homeZipcode || textField == homeCity {
+            preferences.address = "\(homeAddress.text ?? "") \(homeZipcode.text ?? "") \(homeCity.text ?? "")"
+        }
+
+        if textField == workAddress || textField == workZipcode || textField == workCity {
+            preferences.address = "\(workAddress.text ?? "") \(workZipcode.text ?? "") \(workCity.text ?? "")"
+        }
     }
 }
