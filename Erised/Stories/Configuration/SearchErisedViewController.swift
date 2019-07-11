@@ -14,6 +14,7 @@ class SearchErisedViewController: UIViewController {
     @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var label: UILabel!
 
 
     private var centralManager: CBCentralManager!
@@ -22,6 +23,10 @@ class SearchErisedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         retryButton.layer.cornerRadius = 15
+        retryButton.backgroundColor = UIColor.secondaryColor()
+        infoLabel.textColor = UIColor.tertiaryColor()
+        label.textColor = UIColor.tertiaryColor()
+        activityIndicator.color = UIColor.secondaryColor()
         // Do any additional setup after loading the view.
     }
 

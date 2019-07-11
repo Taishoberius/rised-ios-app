@@ -10,12 +10,15 @@ import UIKit
 
 class WifiSetViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var useMirrorButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         useMirrorButton.layer.cornerRadius = 15
+        label.textColor = UIColor.tertiaryColor()
+        useMirrorButton.backgroundColor = UIColor.secondaryColor()
     }
 
     @IBAction func didTouchUse(_ sender: UIButton) {
