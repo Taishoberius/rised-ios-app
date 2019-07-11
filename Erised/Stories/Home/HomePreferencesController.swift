@@ -21,7 +21,8 @@ class HomePreferencesController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherButton: UIButton!
-
+    @IBOutlet weak var setAddressButton: UIButton!
+    
     var delegate: PreferencesDelegate?
     
     private var preferencesHasChanged = false
@@ -35,11 +36,11 @@ class HomePreferencesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         setupUI()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupUI()
     }
 
     private func setupUI() {
@@ -55,6 +56,7 @@ class HomePreferencesController: UIViewController {
         labels.forEach {
             $0.textColor = UIColor.secondaryColor()
         }
+        setAddressButton.tintColor = UIColor.secondaryColor()
     }
 
     private func setupLabel(_ label: UILabel ,userPref: Bool) {
@@ -68,6 +70,7 @@ class HomePreferencesController: UIViewController {
         }
 
         itineraryLabel.text = "Non"
+        setupAddressButton()
     }
 
     private func setupWeather() {
@@ -94,17 +97,31 @@ class HomePreferencesController: UIViewController {
         setupUI()
     }
 
+    @IBAction func didTouchAddress(_ sender: UIButton) {
+        self.delegate?.changeSettingPage(from: HomePreferencesController.self)
+    }
+
+    @IBAction func didTouchInitialize(_ sender: Any) {
+        self.present(AppStoryboard.Configuration.instantiateInitialViewController(), animated: true)
+    }
+
+    @IBAction func didTouchtoothBrush(_ sender: Any) {
+    }
+
     private func onWeatherTouched() {
         var weather = preferences.weather
         weather = weather == 5 ? 0 : weather + 1
         preferences.weather = weather
     }
+
     private func onTempTouched() {
         preferences.temperature = !preferences.temperature
     }
+
     private func onHumiditytouched() {
         preferences.humidity = !preferences.humidity
     }
+
     private func onItineraryTouched() {
         let type = TransportType(rawValue: preferences.transportType)
         if !preferences.itinerary {
@@ -115,6 +132,11 @@ class HomePreferencesController: UIViewController {
             preferences.itinerary = false
             preferences.transportType = TransportType.vehicule.rawValue
         }
+        setupAddressButton()
+    }
+
+    private func setupAddressButton() {
+        self.setAddressButton.isHidden = (preferences.itinerary &&  AddressManager.isAddressComplete(preferences.address) && AddressManager.isAddressComplete(preferences.workAddress)) || !preferences.itinerary
     }
 
 }

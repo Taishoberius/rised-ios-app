@@ -98,7 +98,7 @@ class HomeViewController: UIViewController {
 
         selectButton(sender, type: .setting)
     }
-    
+
     private func selectButton(_ sender: UIButton, type: HomeButtonType) {
         switch type {
         case .user:
@@ -108,6 +108,7 @@ class HomeViewController: UIViewController {
             settingsButton.layer.borderColor = UIColor.tertiaryColor().cgColor
             if isSettingsShowed {
                 isSettingsShowed = false
+                profileController.preferences = preferences
                 setController(profileController)
             }
         case .setting:
@@ -117,6 +118,7 @@ class HomeViewController: UIViewController {
             profileButton.layer.borderColor = UIColor.tertiaryColor().cgColor
             if !isSettingsShowed {
                 isSettingsShowed = true
+                preferencesController.preferences = preferences
                 setController(preferencesController)
             }
         }
@@ -182,6 +184,15 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: PreferencesDelegate {
+    func changeSettingPage(from controller: UIViewController.Type) {
+        if controller is HomePreferencesController.Type {
+            selectButton(profileButton, type: .user)
+            return
+        }
+
+        selectButton(settingsButton, type: .setting)
+    }
+
     func preferencesDidChange(_ preferences: Preferences) {
         if !comparePreferences(preferences) {
             self.modifiedPreferences = preferences

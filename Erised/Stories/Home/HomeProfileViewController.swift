@@ -136,7 +136,7 @@ extension HomeProfileViewController: UITextFieldDelegate {
         }
 
         if textField == workAddress || textField == workZipcode || textField == workCity {
-            preferences.address = "\(workAddress.text ?? "")|\(workZipcode.text ?? "")|\(workCity.text ?? "")"
+            preferences.workAddress = "\(workAddress.text ?? "")|\(workZipcode.text ?? "")|\(workCity.text ?? "")"
         }
     }
 }

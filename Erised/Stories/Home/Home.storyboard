@@ -279,12 +279,48 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woS-a9-gUn">
+                                <rect key="frame" x="10" y="344" width="394" height="30"/>
+                                <state key="normal" title="Renseigner mon adresse"/>
+                                <connections>
+                                    <action selector="didTouchAddress:" destination="mJk-wR-P59" eventType="touchUpInside" id="0gH-qE-yKR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGI-Lr-p2a">
+                                <rect key="frame" x="344" y="792" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HGI-Lr-p2a" secondAttribute="height" multiplier="1:1" id="aYS-dc-jEZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="lIw-iO-Ql4"/>
+                                </constraints>
+                                <state key="normal" image="fa-cog"/>
+                                <connections>
+                                    <action selector="didTouchInitialize:" destination="mJk-wR-P59" eventType="touchUpInside" id="qNm-q1-Rsf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-gZ-VJ9">
+                                <rect key="frame" x="20" y="792" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="L1g-gZ-VJ9" secondAttribute="height" multiplier="1:1" id="D8E-di-6IL"/>
+                                    <constraint firstAttribute="height" constant="50" id="DGl-Uz-ljB"/>
+                                </constraints>
+                                <state key="normal" image="toothbrush"/>
+                                <connections>
+                                    <action selector="didTouchtoothBrush:" destination="mJk-wR-P59" eventType="touchUpInside" id="o23-hk-z3A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="3YR-Ez-RAP" firstAttribute="trailing" secondItem="HGI-Lr-p2a" secondAttribute="trailing" constant="20" id="0f8-eH-pKd"/>
+                            <constraint firstItem="3YR-Ez-RAP" firstAttribute="bottom" secondItem="L1g-gZ-VJ9" secondAttribute="bottom" constant="20" id="5GF-px-xCe"/>
                             <constraint firstItem="3YR-Ez-RAP" firstAttribute="trailing" secondItem="31m-uL-WKv" secondAttribute="trailing" constant="10" id="9sE-rZ-4OO"/>
+                            <constraint firstItem="woS-a9-gUn" firstAttribute="leading" secondItem="31m-uL-WKv" secondAttribute="leading" id="AEb-yt-NpP"/>
+                            <constraint firstItem="woS-a9-gUn" firstAttribute="top" secondItem="31m-uL-WKv" secondAttribute="bottom" id="Dcm-AR-SIt"/>
+                            <constraint firstItem="woS-a9-gUn" firstAttribute="trailing" secondItem="31m-uL-WKv" secondAttribute="trailing" id="SS5-vJ-cOz"/>
                             <constraint firstItem="31m-uL-WKv" firstAttribute="top" secondItem="3YR-Ez-RAP" secondAttribute="top" constant="20" id="WLI-Pb-O4J"/>
+                            <constraint firstItem="3YR-Ez-RAP" firstAttribute="bottom" secondItem="HGI-Lr-p2a" secondAttribute="bottom" constant="20" id="fIw-e9-y2a"/>
                             <constraint firstItem="31m-uL-WKv" firstAttribute="leading" secondItem="3YR-Ez-RAP" secondAttribute="leading" constant="10" id="pkj-Da-yIo"/>
+                            <constraint firstItem="L1g-gZ-VJ9" firstAttribute="leading" secondItem="3YR-Ez-RAP" secondAttribute="leading" constant="20" id="zgO-13-vNz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3YR-Ez-RAP"/>
                     </view>
@@ -296,6 +332,7 @@
                         <outlet property="itineraryLabel" destination="6gO-9h-1he" id="Jew-Ae-6K5"/>
                         <outlet property="itinéraryButton" destination="XQJ-ha-xn2" id="c6b-ZB-NGF"/>
                         <outlet property="prefStackview" destination="31m-uL-WKv" id="s15-hk-GqT"/>
+                        <outlet property="setAddressButton" destination="woS-a9-gUn" id="ucQ-tE-EAe"/>
                         <outlet property="tempButton" destination="RAt-d6-WgI" id="RPP-ls-pdJ"/>
                         <outlet property="tempLabel" destination="1w2-gI-Ihj" id="r5B-l8-72F"/>
                         <outlet property="weatherButton" destination="X5X-Jr-3Do" id="hle-n8-B5z"/>
@@ -473,7 +510,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fa-cog" width="256" height="256"/>
         <image name="fa-settings" width="256" height="256"/>
         <image name="fa-user" width="256" height="256"/>
+        <image name="toothbrush" width="128" height="128"/>
     </resources>
 </document>
