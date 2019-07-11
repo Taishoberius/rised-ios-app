@@ -11,6 +11,7 @@ import Foundation
 enum AppFileManager: String {
     case Config
     case Preferences
+    case UserPreferenceId
 
     func getFileContent() -> String {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {

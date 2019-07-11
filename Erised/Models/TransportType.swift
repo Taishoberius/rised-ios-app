@@ -11,5 +11,10 @@ import Foundation
 enum TransportType: String, Codable {
     case vehicule
     case transport
+
+    static func build(rawValue: String) -> TransportType {
+        return rawValue == "transport" ? .transport : .vehicule
+    }
 }
+
 

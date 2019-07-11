@@ -21,6 +21,14 @@ extension UIColor {
         return UIColor(hexString: "#EFF9F0")!
     }
 
+    static func infoColor() -> UIColor {
+        return UIColor(hexString: "#AD4937")!
+    }
+
+    static func infoSecondaryColor() -> UIColor {
+        return UIColor(hexString: "#B7CACA")!
+    }
+
     public convenience init?(hexString: String) {
         let a, r, g, b: CGFloat
 

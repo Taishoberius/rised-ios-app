@@ -14,9 +14,10 @@
         <scene sceneID="ibp-gc-6oo">
             <objects>
                 <navigationController storyboardIdentifier="ConfigurationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="she-aC-tGx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nq2-Ig-eF9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nq2-Ig-eF9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="2PO-rX-L6V" kind="relationship" relationship="rootViewController" id="H73-Rg-bH8"/>
@@ -42,13 +43,14 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sc9-EB-OUq">
                                 <rect key="frame" x="0.0" y="452.5" width="414" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="3jX-04-5Pj"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Qq-tb-WnA">
                                 <rect key="frame" x="20" y="463.5" width="374" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
@@ -66,6 +68,7 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom du WiFi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o7r-d8-rHa">
                                 <rect key="frame" x="20" y="392.5" width="374" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SFw-1c-FYm"/>
                                 </constraints>
@@ -74,7 +77,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="4Qq-tb-WnA" firstAttribute="height" secondItem="o7r-d8-rHa" secondAttribute="height" id="1mB-jp-nxr"/>
                             <constraint firstItem="4Qq-tb-WnA" firstAttribute="top" secondItem="Sc9-EB-OUq" secondAttribute="bottom" constant="10" id="3P7-nn-f5g"/>
@@ -97,6 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="vja-Qc-Oc3"/>
                     </view>
                     <connections>
+                        <outlet property="label" destination="ixx-zq-JRZ" id="PaL-do-PGt"/>
                         <outlet property="passwordField" destination="4Qq-tb-WnA" id="QCO-Yj-9Zr"/>
                         <outlet property="ssidField" destination="o7r-d8-rHa" id="VRF-K4-1a8"/>
                         <outlet property="validateButton" destination="j2g-bw-guI" id="sAU-xd-ZWA"/>
@@ -141,7 +145,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5Io-G1-aok" firstAttribute="top" secondItem="5JK-Ru-9BB" secondAttribute="top" constant="20" id="141-cF-KF4"/>
                             <constraint firstItem="5JK-Ru-9BB" firstAttribute="trailing" secondItem="Sa9-wW-dW9" secondAttribute="trailing" constant="20" id="232-zo-aWL"/>
@@ -157,6 +161,7 @@
                         <viewLayoutGuide key="safeArea" id="5JK-Ru-9BB"/>
                     </view>
                     <connections>
+                        <outlet property="label" destination="5Io-G1-aok" id="G9v-7i-dHa"/>
                         <outlet property="useMirrorButton" destination="Sa9-wW-dW9" id="hVp-Si-eKO"/>
                     </connections>
                 </viewController>
@@ -169,11 +174,11 @@
             <objects>
                 <viewController id="2PO-rX-L6V" customClass="ConfigurationViewController" customModule="Erised" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sEO-g1-Mh3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="247-gD-OkE">
-                                <rect key="frame" x="20" y="404.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="316.5" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DRV-ps-y7Y"/>
@@ -186,14 +191,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xq3-1q-3eX" userLabel="center view">
-                                <rect key="frame" x="0.0" y="474.5" width="414" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="386.5" width="414" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="seY-gg-d6C"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTi-X4-X0d">
-                                <rect key="frame" x="20" y="495.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="407.5" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Utiliser mon mirroir">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -203,7 +208,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xq3-1q-3eX" firstAttribute="centerY" secondItem="3uT-W3-DeY" secondAttribute="centerY" id="6Od-6g-CV0"/>
                             <constraint firstItem="xq3-1q-3eX" firstAttribute="top" secondItem="247-gD-OkE" secondAttribute="bottom" constant="20" id="8Ly-ar-VZU"/>
@@ -233,21 +238,21 @@
             <objects>
                 <viewController id="hUd-GC-UG0" customClass="SearchErisedViewController" customModule="Erised" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BS0-Fi-1bX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recherche du mirroir en cours, assure-vous que celui-ci est branché." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-71-Wso">
-                                <rect key="frame" x="60" y="118" width="294" height="41"/>
+                                <rect key="frame" x="60" y="30" width="294" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4LY-iU-wAT">
-                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="368.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Er-kG-x4y">
-                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <rect key="frame" x="20" y="724" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F9W-8F-9q8"/>
@@ -260,13 +265,13 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-si-Pbm">
-                                <rect key="frame" x="20" y="465" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="377" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="3Er-kG-x4y" firstAttribute="centerX" secondItem="AH3-vT-yVQ" secondAttribute="centerX" id="2Kg-BL-Gxg"/>
                             <constraint firstItem="AH3-vT-yVQ" firstAttribute="trailing" secondItem="3Er-kG-x4y" secondAttribute="trailing" constant="20" id="Dnt-Du-z3M"/>
@@ -288,6 +293,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="4LY-iU-wAT" id="Vxb-4v-OgO"/>
                         <outlet property="infoLabel" destination="e6l-si-Pbm" id="FBa-Sz-o8R"/>
+                        <outlet property="label" destination="ZNQ-71-Wso" id="ZOz-gh-Hze"/>
                         <outlet property="retryButton" destination="3Er-kG-x4y" id="Evk-BV-Cet"/>
                     </connections>
                 </viewController>

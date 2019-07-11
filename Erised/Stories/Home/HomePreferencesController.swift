@@ -21,54 +21,32 @@ class HomePreferencesController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherButton: UIButton!
+    @IBOutlet weak var setAddressButton: UIButton!
+    
+    var delegate: PreferencesDelegate?
     
     private var preferencesHasChanged = false
-    private var preferences: Preferences!
+    var preferences: Preferences! {
+        didSet {
+            if oldValue != nil {
+                delegate?.preferencesDidChange(self.preferences)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preferences = fetchPreferences()
-         setupUI()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
-
-    private func fetchPreferences() -> Preferences {
-        let preferencesString = AppFileManager.Preferences.getFileContent()
-        if preferencesString.isEmpty {
-            return createDefaultPreferences()
-        }
-
-        guard let data = preferencesString.data(using: .utf8) else {
-            return createDefaultPreferences()
-        }
-
-
-        guard let preferences = try? JSONDecoder().decode(Preferences.self, from: data) else {
-            return createDefaultPreferences()
-        }
-
-        return preferences
-    }
-
-    private func createDefaultPreferences() -> Preferences {
-        let pref = Preferences(weather: 0, address: nil, transporType: .vehicule, temperature: false, humidity: false, itinerary: false, name: nil)
-
-        guard let json = try? JSONEncoder().encode(pref) else {
-            return pref
-        }
-
-        AppFileManager.Preferences.write(String(data: json, encoding: .utf8) ?? "")
-
-        return pref
+        setupUI()
     }
 
     private func setupUI() {
         setupLabel(tempLabel, userPref: preferences.temperature)
         setupLabel(humidityLabel, userPref: preferences.humidity)
-        setupItinerary(preferences.itinerary, transportType: preferences.transporType)
+        setupItinerary(preferences.itinerary, transportType: TransportType.build(rawValue: preferences.transportType))
         setupWeather()
         buttons.forEach {
             $0.layer.cornerRadius = 15
@@ -78,6 +56,7 @@ class HomePreferencesController: UIViewController {
         labels.forEach {
             $0.textColor = UIColor.secondaryColor()
         }
+        setAddressButton.tintColor = UIColor.secondaryColor()
     }
 
     private func setupLabel(_ label: UILabel ,userPref: Bool) {
@@ -91,6 +70,7 @@ class HomePreferencesController: UIViewController {
         }
 
         itineraryLabel.text = "Non"
+        setupAddressButton()
     }
 
     private func setupWeather() {
@@ -117,26 +97,46 @@ class HomePreferencesController: UIViewController {
         setupUI()
     }
 
+    @IBAction func didTouchAddress(_ sender: UIButton) {
+        self.delegate?.changeSettingPage(from: HomePreferencesController.self)
+    }
+
+    @IBAction func didTouchInitialize(_ sender: Any) {
+        self.present(AppStoryboard.Configuration.instantiateInitialViewController(), animated: true)
+    }
+
+    @IBAction func didTouchtoothBrush(_ sender: Any) {
+    }
+
     private func onWeatherTouched() {
         var weather = preferences.weather
         weather = weather == 5 ? 0 : weather + 1
         preferences.weather = weather
     }
+
     private func onTempTouched() {
         preferences.temperature = !preferences.temperature
     }
+
     private func onHumiditytouched() {
         preferences.humidity = !preferences.humidity
     }
+
     private func onItineraryTouched() {
+        let type = TransportType(rawValue: preferences.transportType)
         if !preferences.itinerary {
             preferences.itinerary = !preferences.itinerary
-        } else if preferences.transporType == .vehicule {
-            preferences.transporType = .transport
+        } else if type == .vehicule {
+            preferences.transportType = TransportType.transport.rawValue
         } else {
             preferences.itinerary = false
-            preferences.transporType = .vehicule
+            preferences.transportType = TransportType.vehicule.rawValue
         }
+        setupAddressButton()
+    }
+
+    private func setupAddressButton() {
+        self.setAddressButton.isHidden = (preferences.itinerary &&  AddressManager.isAddressComplete(preferences.address) && AddressManager.isAddressComplete(preferences.workAddress)) || !preferences.itinerary
     }
 
 }

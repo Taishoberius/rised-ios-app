@@ -16,7 +16,9 @@ class ConfigurationViewController: UIViewController {
         super.viewDidLoad()
 
         configureButton.layer.cornerRadius = 15
+        configureButton.backgroundColor = UIColor.secondaryColor()
         mirrorButton.layer.cornerRadius = 15
+        mirrorButton.backgroundColor = UIColor.secondaryColor()
     }
 
     @IBAction func didtouchUse(_ sender: Any) {

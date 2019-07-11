@@ -14,6 +14,7 @@ class WifiSetupViewController: UIViewController {
     @IBOutlet weak var ssidField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var validateButton: UIButton!
+    @IBOutlet weak var label: UILabel!
 
     var device: CBPeripheral!
 
@@ -25,6 +26,20 @@ class WifiSetupViewController: UIViewController {
         passwordField.delegate = self
         device.delegate = self
         validateButton.isEnabled = false
+        validateButton.backgroundColor = UIColor.secondaryColor()
+        ssidField.textColor = UIColor.tertiaryColor()
+        passwordField.textColor = UIColor.tertiaryColor()
+        ssidField.attributedPlaceholder = NSAttributedString(string: "ssid",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.tertiaryColor()])
+        passwordField.attributedPlaceholder = NSAttributedString(string: "password",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.tertiaryColor()])
+        ssidField.layer.borderColor = UIColor.tertiaryColor().cgColor
+        passwordField.layer.borderColor = UIColor.tertiaryColor().cgColor
+        ssidField.layer.borderWidth = 2
+        passwordField.layer.borderWidth = 2
+        ssidField.layer.cornerRadius = 15
+        passwordField.layer.cornerRadius = 15
+        label.textColor = UIColor.tertiaryColor()
 
         device.discoverServices(nil)
     }

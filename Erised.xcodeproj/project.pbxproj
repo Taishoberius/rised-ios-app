@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F042C7D22D63299002BB7FA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F042C7C22D63299002BB7FA /* Service.swift */; };
 		7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F33289B22C5789000DB0F4D /* Assets.xcassets */; };
 		7F33289E22C5832D00DB0F4D /* WifiSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33289D22C5832D00DB0F4D /* WifiSetupViewController.swift */; };
 		7F43E8AF22D1532600F1C087 /* WifiSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8AE22D1532600F1C087 /* WifiSetViewController.swift */; };
 		7F43E8B122D1585E00F1C087 /* AppFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8B022D1585E00F1C087 /* AppFileManager.swift */; };
 		7F43E8B322D28B7200F1C087 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8B222D28B7200F1C087 /* Preferences.swift */; };
-		7F43E8B522D28BDD00F1C087 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8B422D28BDD00F1C087 /* Address.swift */; };
 		7F43E8B722D28C3000F1C087 /* TransportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8B622D28C3000F1C087 /* TransportType.swift */; };
+		7F6E94A122D4B6F400643238 /* PreferencesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E94A022D4B6F400643238 /* PreferencesDelegate.swift */; };
 		7F9485B422C4B0D000F027A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485B322C4B0D000F027A4 /* AppDelegate.swift */; };
 		7F9485BE22C4B0D100F027A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9485BC22C4B0D100F027A4 /* LaunchScreen.storyboard */; };
 		7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485C722C4B86E00F027A4 /* AppStoryboard.swift */; };
@@ -23,19 +24,24 @@
 		7F9485D922C4C00700F027A4 /* Configuration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9485D822C4C00700F027A4 /* Configuration.storyboard */; };
 		7F9485DB22C4C04900F027A4 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485DA22C4C04900F027A4 /* ConfigurationViewController.swift */; };
 		7F9485DD22C4C2D000F027A4 /* SearchErisedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9485DC22C4C2D000F027A4 /* SearchErisedViewController.swift */; };
+		7F97AA3822D478B0008FA400 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F97AA3722D478AF008FA400 /* GoogleService-Info.plist */; };
+		7FBC185622D7E06100466DC7 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC185522D7E06100466DC7 /* AddressManager.swift */; };
 		7FD8E7C322D3E86A00B16F46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */; };
 		7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */; };
 		7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */; };
+		C679A530FEA7322DDCC391FB /* Pods_Erised.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37313BBA390A2CCB5E50214 /* Pods_Erised.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		163B728DBB3215B164B6DB6C /* Pods-Erised.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erised.debug.xcconfig"; path = "Target Support Files/Pods-Erised/Pods-Erised.debug.xcconfig"; sourceTree = "<group>"; };
+		7F042C7C22D63299002BB7FA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7F33289B22C5789000DB0F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F33289D22C5832D00DB0F4D /* WifiSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSetupViewController.swift; sourceTree = "<group>"; };
 		7F43E8AE22D1532600F1C087 /* WifiSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSetViewController.swift; sourceTree = "<group>"; };
 		7F43E8B022D1585E00F1C087 /* AppFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileManager.swift; sourceTree = "<group>"; };
 		7F43E8B222D28B7200F1C087 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		7F43E8B422D28BDD00F1C087 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		7F43E8B622D28C3000F1C087 /* TransportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportType.swift; sourceTree = "<group>"; };
+		7F6E94A022D4B6F400643238 /* PreferencesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDelegate.swift; sourceTree = "<group>"; };
 		7F9485B022C4B0D000F027A4 /* Erised.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Erised.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F9485B322C4B0D000F027A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F9485BD22C4B0D100F027A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,9 +53,13 @@
 		7F9485D822C4C00700F027A4 /* Configuration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configuration.storyboard; sourceTree = "<group>"; };
 		7F9485DA22C4C04900F027A4 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		7F9485DC22C4C2D000F027A4 /* SearchErisedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErisedViewController.swift; sourceTree = "<group>"; };
+		7F97AA3722D478AF008FA400 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7FBC185522D7E06100466DC7 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
 		7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileViewController.swift; sourceTree = "<group>"; };
+		B37313BBA390A2CCB5E50214 /* Pods_Erised.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Erised.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7854FE6D14B6E5AB3C52C90 /* Pods-Erised.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erised.release.xcconfig"; path = "Target Support Files/Pods-Erised/Pods-Erised.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,18 +67,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C679A530FEA7322DDCC391FB /* Pods_Erised.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1D8BC4CD9DB7B43AE3039E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B37313BBA390A2CCB5E50214 /* Pods_Erised.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F042C7B22D63280002BB7FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7F042C7C22D63299002BB7FA /* Service.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		7F9485A722C4B0D000F027A4 = {
 			isa = PBXGroup;
 			children = (
 				7F33289B22C5789000DB0F4D /* Assets.xcassets */,
 				7F9485B222C4B0D000F027A4 /* Erised */,
 				7F9485B122C4B0D000F027A4 /* Products */,
+				D29624766F34727A2FD64F21 /* Pods */,
+				6D1D8BC4CD9DB7B43AE3039E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,12 +112,14 @@
 		7F9485B222C4B0D000F027A4 /* Erised */ = {
 			isa = PBXGroup;
 			children = (
+				7F042C7B22D63280002BB7FA /* Services */,
 				7F9485CD22C4B9B600F027A4 /* Models */,
 				7F9485C622C4B85B00F027A4 /* Stories */,
 				7F9485C522C4B85100F027A4 /* Utils */,
 				7F9485B322C4B0D000F027A4 /* AppDelegate.swift */,
 				7F9485BC22C4B0D100F027A4 /* LaunchScreen.storyboard */,
 				7F9485BF22C4B0D100F027A4 /* Info.plist */,
+				7F97AA3722D478AF008FA400 /* GoogleService-Info.plist */,
 			);
 			path = Erised;
 			sourceTree = "<group>";
@@ -100,6 +131,7 @@
 				7F9485C722C4B86E00F027A4 /* AppStoryboard.swift */,
 				7F43E8B022D1585E00F1C087 /* AppFileManager.swift */,
 				7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */,
+				7FBC185522D7E06100466DC7 /* AddressManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -117,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				7F43E8B222D28B7200F1C087 /* Preferences.swift */,
-				7F43E8B422D28BDD00F1C087 /* Address.swift */,
 				7F43E8B622D28C3000F1C087 /* TransportType.swift */,
 			);
 			path = Models;
@@ -128,8 +159,9 @@
 			children = (
 				7F9485CF22C4BB9100F027A4 /* Home.storyboard */,
 				7F9485D122C4BBA300F027A4 /* HomePreferencesController.swift */,
-				7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */,
 				7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */,
+				7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */,
+				7F6E94A022D4B6F400643238 /* PreferencesDelegate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -146,6 +178,15 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		D29624766F34727A2FD64F21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				163B728DBB3215B164B6DB6C /* Pods-Erised.debug.xcconfig */,
+				E7854FE6D14B6E5AB3C52C90 /* Pods-Erised.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F9485C222C4B0D100F027A4 /* Build configuration list for PBXNativeTarget "Erised" */;
 			buildPhases = (
+				294BCBEEE4439AAB1A0CE5AA /* [CP] Check Pods Manifest.lock */,
 				7F9485AC22C4B0D000F027A4 /* Sources */,
 				7F9485AD22C4B0D000F027A4 /* Frameworks */,
 				7F9485AE22C4B0D000F027A4 /* Resources */,
+				135CA53F0ECF689A73D73710 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,6 +249,7 @@
 			files = (
 				7F9485D022C4BB9100F027A4 /* Home.storyboard in Resources */,
 				7F9485BE22C4B0D100F027A4 /* LaunchScreen.storyboard in Resources */,
+				7F97AA3822D478B0008FA400 /* GoogleService-Info.plist in Resources */,
 				7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */,
 				7F9485D922C4C00700F027A4 /* Configuration.storyboard in Resources */,
 			);
@@ -213,12 +257,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		135CA53F0ECF689A73D73710 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Erised/Pods-Erised-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Erised/Pods-Erised-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		294BCBEEE4439AAB1A0CE5AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Erised-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F9485AC22C4B0D000F027A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7F43E8AF22D1532600F1C087 /* WifiSetViewController.swift in Sources */,
+				7F6E94A122D4B6F400643238 /* PreferencesDelegate.swift in Sources */,
 				7F43E8B122D1585E00F1C087 /* AppFileManager.swift in Sources */,
 				7F43E8B322D28B7200F1C087 /* Preferences.swift in Sources */,
 				7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */,
@@ -227,11 +319,12 @@
 				7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */,
 				7F9485B422C4B0D000F027A4 /* AppDelegate.swift in Sources */,
 				7F33289E22C5832D00DB0F4D /* WifiSetupViewController.swift in Sources */,
+				7FBC185622D7E06100466DC7 /* AddressManager.swift in Sources */,
 				7F9485DB22C4C04900F027A4 /* ConfigurationViewController.swift in Sources */,
+				7F042C7D22D63299002BB7FA /* Service.swift in Sources */,
 				7F9485DD22C4C2D000F027A4 /* SearchErisedViewController.swift in Sources */,
 				7F43E8B722D28C3000F1C087 /* TransportType.swift in Sources */,
 				7FD8E7C322D3E86A00B16F46 /* UIColor+Extension.swift in Sources */,
-				7F43E8B522D28BDD00F1C087 /* Address.swift in Sources */,
 				7F9485D222C4BBA300F027A4 /* HomePreferencesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +461,7 @@
 		};
 		7F9485C322C4B0D100F027A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163B728DBB3215B164B6DB6C /* Pods-Erised.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +481,7 @@
 		};
 		7F9485C422C4B0D100F027A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7854FE6D14B6E5AB3C52C90 /* Pods-Erised.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
