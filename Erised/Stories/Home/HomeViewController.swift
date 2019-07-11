@@ -20,9 +20,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var settingsImage: UIImageView!
+    @IBOutlet weak var buttonValidate: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private var isSettingsShowed = true
     private var preferences: Preferences!
+    private var modifiedPreferences: Preferences? = nil
     private var userId: String!
 
     var profileController = AppStoryboard.Home.viewController(viewControllerClass: HomeProfileViewController.self)
@@ -41,6 +44,11 @@ class HomeViewController: UIViewController {
         preferencesController.delegate = self
         profileController.preferences = preferences
         profileController.delegate = self
+        buttonValidate.layer.cornerRadius = 15
+        buttonValidate.backgroundColor = UIColor.infoColor()
+        buttonValidate.setTitleColor(UIColor.infoSecondaryColor(), for: .normal)
+        buttonValidate.alpha = 0
+        activityIndicator.color = UIColor.infoColor()
         // Do any additional setup after loading the view.
     }
 
@@ -137,11 +145,62 @@ class HomeViewController: UIViewController {
         containerView.addSubview(controller.view)
         controller.didMove(toParent: self)
     }
+
+    @IBAction func didTouchValidate(_ sender: Any) {
+        guard let preference = modifiedPreferences else {
+            return
+        }
+
+        self.activityIndicator.startAnimating()
+        self.preferences = preference
+        self.validateButtonAnimation(alpha: 0, enabled: false)
+        Service.instance.updatePreference(id: userId, preference: preferences) {
+            self.activityIndicator.stopAnimating()
+            guard let preference = $0 else {
+
+                return
+            }
+
+            self.preferences = preference
+
+            guard let encoder = try? JSONEncoder().encode(preference),
+            let data = String(data: encoder, encoding: .utf8) else {
+                return
+            }
+
+            AppFileManager.Preferences.write(data)
+        }
+    }
+
+    private func validateButtonAnimation(alpha: CGFloat, enabled: Bool) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations: {
+            self.buttonValidate.alpha = alpha
+        }, completion: { _ in
+            self.buttonValidate.isEnabled = enabled
+        })
+    }
 }
 
 extension HomeViewController: PreferencesDelegate {
     func preferencesDidChange(_ preferences: Preferences) {
-        self.preferences = preferences
-        //show validate button
+        if !comparePreferences(preferences) {
+            self.modifiedPreferences = preferences
+            validateButtonAnimation(alpha: 1, enabled: true)
+            return
+        }
+
+        validateButtonAnimation(alpha: 0, enabled: false)
+    }
+
+    private func comparePreferences(_ preference: Preferences) -> Bool {
+        return preferences.address == preference.address &&
+        preferences.name == preference.name &&
+        preferences.workAddress == preference.workAddress &&
+        preferences.deviceName == preference.deviceName &&
+        preferences.itinerary == preference.itinerary &&
+        preferences.humidity == preference.humidity &&
+        preferences.temperature == preference.temperature &&
+        preferences.weather == preference.weather &&
+        preferences.transportType == preference.transportType
     }
 }

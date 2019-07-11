@@ -10,6 +10,11 @@ import UIKit
 
 class HomeProfileViewController: UIViewController {
 
+    private enum AddressType {
+        case work
+        case home
+    }
+
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var homeAddress: UITextField!
     @IBOutlet weak var homeZipcode: UITextField!
@@ -44,6 +49,7 @@ class HomeProfileViewController: UIViewController {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        setupUI()
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -59,6 +65,43 @@ class HomeProfileViewController: UIViewController {
         if frameChanged {
             view.frame.origin.y = 0
             frameChanged = false
+        }
+    }
+
+    private func setupUI() {
+        name.text = preferences.name
+        setAddressFields(preferences.address, type: .home)
+        setAddressFields(preferences.workAddress, type: .work)
+    }
+
+    private func setAddressFields(_ address: String, type: AddressType) {
+        if address.isEmpty {
+            return
+        }
+        var addressDest = ""
+        var zipcode = ""
+        var city = ""
+        let split = address.split(separator: "|")
+        if split.count > 0 {
+            addressDest = split[0].description
+        }
+        if split.count > 1 {
+            zipcode = split[1].description
+        }
+        if split.count > 2 {
+            city = split[2].description
+        }
+
+        switch type {
+
+        case .work:
+            workAddress.text = addressDest
+            workZipcode.text = zipcode
+            workCity.text = city
+        case .home:
+            homeAddress.text = addressDest
+            homeZipcode.text = zipcode
+            homeCity.text = city
         }
     }
 }
@@ -89,11 +132,11 @@ extension HomeProfileViewController: UITextFieldDelegate {
         }
 
         if textField == homeAddress || textField == homeZipcode || textField == homeCity {
-            preferences.address = "\(homeAddress.text ?? "") \(homeZipcode.text ?? "") \(homeCity.text ?? "")"
+            preferences.address = "\(homeAddress.text ?? "")|\(homeZipcode.text ?? "")|\(homeCity.text ?? "")"
         }
 
         if textField == workAddress || textField == workZipcode || textField == workCity {
-            preferences.address = "\(workAddress.text ?? "") \(workZipcode.text ?? "") \(workCity.text ?? "")"
+            preferences.address = "\(workAddress.text ?? "")|\(workZipcode.text ?? "")|\(workCity.text ?? "")"
         }
     }
 }
