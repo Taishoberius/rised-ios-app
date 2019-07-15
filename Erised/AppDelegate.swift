@@ -17,11 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-        if (AppFileManager.Config.getFileContent().isEmpty) {
-            window.rootViewController = AppStoryboard.Configuration.instantiateInitialViewController()
-        } else {
-            window.rootViewController = AppStoryboard.Home.instantiateInitialViewController()
-        }
+        window.rootViewController = LaunchViewController()
 
         window.makeKeyAndVisible()
 

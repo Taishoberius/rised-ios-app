@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F042C7D22D63299002BB7FA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F042C7C22D63299002BB7FA /* Service.swift */; };
+		7F236DAB22DCA1060044BF84 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F236DA922DCA1060044BF84 /* LaunchViewController.swift */; };
+		7F236DAC22DCA1060044BF84 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F236DAA22DCA1060044BF84 /* LaunchViewController.xib */; };
 		7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F33289B22C5789000DB0F4D /* Assets.xcassets */; };
 		7F33289E22C5832D00DB0F4D /* WifiSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33289D22C5832D00DB0F4D /* WifiSetupViewController.swift */; };
 		7F43E8AF22D1532600F1C087 /* WifiSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43E8AE22D1532600F1C087 /* WifiSetViewController.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		163B728DBB3215B164B6DB6C /* Pods-Erised.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erised.debug.xcconfig"; path = "Target Support Files/Pods-Erised/Pods-Erised.debug.xcconfig"; sourceTree = "<group>"; };
 		7F042C7C22D63299002BB7FA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7F236DA922DCA1060044BF84 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		7F236DAA22DCA1060044BF84 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		7F33289B22C5789000DB0F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F33289D22C5832D00DB0F4D /* WifiSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSetupViewController.swift; sourceTree = "<group>"; };
 		7F43E8AE22D1532600F1C087 /* WifiSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSetViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				7F43E8B022D1585E00F1C087 /* AppFileManager.swift */,
 				7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */,
 				7FBC185522D7E06100466DC7 /* AddressManager.swift */,
+				7F236DA922DCA1060044BF84 /* LaunchViewController.swift */,
+				7F236DAA22DCA1060044BF84 /* LaunchViewController.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				7F9485D022C4BB9100F027A4 /* Home.storyboard in Resources */,
 				7F9485BE22C4B0D100F027A4 /* LaunchScreen.storyboard in Resources */,
 				7F97AA3822D478B0008FA400 /* GoogleService-Info.plist in Resources */,
+				7F236DAC22DCA1060044BF84 /* LaunchViewController.xib in Resources */,
 				7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */,
 				7F9485D922C4C00700F027A4 /* Configuration.storyboard in Resources */,
 			);
@@ -316,6 +323,7 @@
 				7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */,
 				7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */,
 				7F9485CA22C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift in Sources */,
+				7F236DAB22DCA1060044BF84 /* LaunchViewController.swift in Sources */,
 				7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */,
 				7F9485B422C4B0D000F027A4 /* AppDelegate.swift in Sources */,
 				7F33289E22C5832D00DB0F4D /* WifiSetupViewController.swift in Sources */,
