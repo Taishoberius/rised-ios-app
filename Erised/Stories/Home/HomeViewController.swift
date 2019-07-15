@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
     }
 
     private func createDefaultPreferences() -> Preferences {
-        let pref = Preferences()
+        let pref = Preferences(deviceName: UIDevice.current.name)
         Service.instance.createPreference(preference: pref) {
             if let id = $0 {
                 AppFileManager.UserPreferenceId.write(id)

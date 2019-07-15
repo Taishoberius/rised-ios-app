@@ -19,7 +19,7 @@ struct Preferences: Codable {
     var name: String = ""
     var deviceName: String = ""
 
-    init(weather: Int = 0, address: String = "", workAddress: String = "", transportType: TransportType = .vehicule, temperature: Bool = false, humidity: Bool = false, itinerary: Bool = false, name: String = "", deviceName: String = "") {
+    init(deviceName: String, weather: Int = 0, address: String = "", workAddress: String = "", transportType: TransportType = .vehicule, temperature: Bool = false, humidity: Bool = false, itinerary: Bool = false, name: String = "") {
         self.weather = weather
         self.address = address
         self.workAddress = workAddress
