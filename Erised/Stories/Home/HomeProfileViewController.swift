@@ -68,7 +68,7 @@ class HomeProfileViewController: UIViewController {
         }
     }
 
-    private func setupUI() {
+    func setupUI() {
         name.text = preferences.name
         setAddressFields(preferences.address, type: .home)
         setAddressFields(preferences.workAddress, type: .work)

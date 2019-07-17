@@ -8,14 +8,14 @@
 
 import UIKit
 import CoreBluetooth
+import Lottie
 
 class SearchErisedViewController: UIViewController {
 
     @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var label: UILabel!
-
+    
 
     private var centralManager: CBCentralManager!
     private var erisedDevice: CBPeripheral?
@@ -26,7 +26,15 @@ class SearchErisedViewController: UIViewController {
         retryButton.backgroundColor = UIColor.secondaryColor()
         infoLabel.textColor = UIColor.tertiaryColor()
         label.textColor = UIColor.tertiaryColor()
-        activityIndicator.color = UIColor.secondaryColor()
+
+        let animation = AnimationView(name: "bluetooth-connecting")
+        animation.center = view.center
+        animation.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+
+        view.addSubview(animation)
+
+        animation.loopMode = .autoReverse
+        animation.play()
         // Do any additional setup after loading the view.
     }
 
@@ -47,12 +55,10 @@ class SearchErisedViewController: UIViewController {
         self.infoLabel.text = "Veuillez activer votre bluetooth"
         self.infoLabel.isHidden = false
         self.retryButton.isHidden = false
-        self.activityIndicator.stopAnimating()
     }
 
     private func searchErised() {
         self.infoLabel.isHidden = true
-        self.activityIndicator.startAnimating()
         self.centralManager.scanForPeripherals(withServices: nil)
     }
 }

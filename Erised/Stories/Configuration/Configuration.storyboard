@@ -247,10 +247,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4LY-iU-wAT">
-                                <rect key="frame" x="188.5" y="368.5" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Er-kG-x4y">
                                 <rect key="frame" x="20" y="724" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -281,17 +277,14 @@
                             <constraint firstItem="ZNQ-71-Wso" firstAttribute="top" secondItem="AH3-vT-yVQ" secondAttribute="top" constant="30" id="XE5-QW-rs8"/>
                             <constraint firstItem="e6l-si-Pbm" firstAttribute="centerY" secondItem="AH3-vT-yVQ" secondAttribute="centerY" id="YNk-yG-7u8"/>
                             <constraint firstItem="AH3-vT-yVQ" firstAttribute="trailing" secondItem="ZNQ-71-Wso" secondAttribute="trailing" constant="60" id="e8a-NA-Glr"/>
-                            <constraint firstItem="4LY-iU-wAT" firstAttribute="centerX" secondItem="AH3-vT-yVQ" secondAttribute="centerX" id="jVI-kA-zXG"/>
                             <constraint firstItem="3Er-kG-x4y" firstAttribute="leading" secondItem="AH3-vT-yVQ" secondAttribute="leading" constant="20" id="js2-U0-vUj"/>
                             <constraint firstItem="ZNQ-71-Wso" firstAttribute="centerX" secondItem="AH3-vT-yVQ" secondAttribute="centerX" id="oDW-dr-9Am"/>
                             <constraint firstItem="e6l-si-Pbm" firstAttribute="centerX" secondItem="AH3-vT-yVQ" secondAttribute="centerX" id="rgP-fO-ZtZ"/>
-                            <constraint firstItem="4LY-iU-wAT" firstAttribute="centerY" secondItem="AH3-vT-yVQ" secondAttribute="centerY" id="szY-c5-aKI"/>
                             <constraint firstItem="AH3-vT-yVQ" firstAttribute="trailing" secondItem="e6l-si-Pbm" secondAttribute="trailing" constant="20" id="xKW-7D-ckx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AH3-vT-yVQ"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="4LY-iU-wAT" id="Vxb-4v-OgO"/>
                         <outlet property="infoLabel" destination="e6l-si-Pbm" id="FBa-Sz-o8R"/>
                         <outlet property="label" destination="ZNQ-71-Wso" id="ZOz-gh-Hze"/>
                         <outlet property="retryButton" destination="3Er-kG-x4y" id="Evk-BV-Cet"/>

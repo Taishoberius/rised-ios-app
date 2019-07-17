@@ -62,4 +62,15 @@ class Service {
             response(preference)
         }
     }
+
+    func sendToothBrushNotification(id: String, response: @escaping ((Bool) -> Void)) {
+        Alamofire.request("\(Service.baseUrl)sendToothBrushNotification?id=\(id)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: [:]).response {
+            guard $0.response?.statusCode == 200 else {
+                response(false)
+                return
+            }
+
+            response(true)
+        }
+    }
 }

@@ -71,6 +71,21 @@ class HomeViewController: UIViewController {
             return createDefaultPreferences()
         }
 
+        Service.instance.getPreference(id: userId) {
+            guard let preference = $0 else {
+                return
+            }
+
+            self.preferences = preference
+            if self.isSettingsShowed {
+                self.preferencesController.preferences = self.preferences
+                self.preferencesController.setupUI()
+            } else {
+                self.profileController.preferences = self.preferences
+                self.profileController.setupUI()
+            }
+        }
+
         return preferences
     }
 
@@ -156,6 +171,29 @@ class HomeViewController: UIViewController {
         self.activityIndicator.startAnimating()
         self.preferences = preference
         self.validateButtonAnimation(alpha: 0, enabled: false)
+        if preferences.token.isEmpty {
+            refreshPreferencesBeforeUpdate()
+            return
+        }
+
+        updatePreferences()
+    }
+
+    private func refreshPreferencesBeforeUpdate() {
+        Service.instance.getPreference(id: userId) {
+            guard let preference = $0 else {
+                return
+            }
+
+            if !preference.token.isEmpty {
+                self.preferences.token = preference.token
+            }
+
+            self.updatePreferences()
+        }
+    }
+
+    private func updatePreferences() {
         Service.instance.updatePreference(id: userId, preference: preferences) {
             self.activityIndicator.stopAnimating()
             guard let preference = $0 else {
@@ -166,8 +204,8 @@ class HomeViewController: UIViewController {
             self.preferences = preference
 
             guard let encoder = try? JSONEncoder().encode(preference),
-            let data = String(data: encoder, encoding: .utf8) else {
-                return
+                let data = String(data: encoder, encoding: .utf8) else {
+                    return
             }
 
             AppFileManager.Preferences.write(data)
@@ -184,6 +222,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: PreferencesDelegate {
+    func touchToothBrushNotification() {
+        Service.instance.sendToothBrushNotification(id: userId) { (_) in }
+    }
+
     func changeSettingPage(from controller: UIViewController.Type) {
         if controller is HomePreferencesController.Type {
             selectButton(profileButton, type: .user)

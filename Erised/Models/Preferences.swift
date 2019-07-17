@@ -18,8 +18,10 @@ struct Preferences: Codable {
     var itinerary: Bool = false
     var name: String = ""
     var deviceName: String = ""
+    var token: String = ""
+    var id: String? = ""
 
-    init(deviceName: String, weather: Int = 0, address: String = "", workAddress: String = "", transportType: TransportType = .vehicule, temperature: Bool = false, humidity: Bool = false, itinerary: Bool = false, name: String = "") {
+    init(deviceName: String, weather: Int = 0, address: String = "", workAddress: String = "", transportType: TransportType = .vehicule, temperature: Bool = false, humidity: Bool = false, itinerary: Bool = false, name: String = "", token: String = "", id: String = "") {
         self.weather = weather
         self.address = address
         self.workAddress = workAddress
@@ -29,5 +31,7 @@ struct Preferences: Codable {
         self.itinerary = itinerary
         self.name = name
         self.deviceName = deviceName
+        self.token = token
+        self.id = id
     }
 }

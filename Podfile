@@ -7,5 +7,6 @@ target 'Erised' do
 
   # Pods for Erised
   pod 'Alamofire'
+  pod 'lottie-ios'
 
 end

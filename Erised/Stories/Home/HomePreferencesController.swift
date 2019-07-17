@@ -43,7 +43,7 @@ class HomePreferencesController: UIViewController {
         setupUI()
     }
 
-    private func setupUI() {
+    func setupUI() {
         setupLabel(tempLabel, userPref: preferences.temperature)
         setupLabel(humidityLabel, userPref: preferences.humidity)
         setupItinerary(preferences.itinerary, transportType: TransportType.build(rawValue: preferences.transportType))
@@ -106,6 +106,7 @@ class HomePreferencesController: UIViewController {
     }
 
     @IBAction func didTouchtoothBrush(_ sender: Any) {
+        delegate?.touchToothBrushNotification()
     }
 
     private func onWeatherTouched() {

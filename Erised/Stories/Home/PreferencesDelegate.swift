@@ -12,4 +12,5 @@ import UIKit
 protocol PreferencesDelegate {
     func preferencesDidChange(_ preferences: Preferences)
     func changeSettingPage(from controller: UIViewController.Type)
+    func touchToothBrushNotification()
 }

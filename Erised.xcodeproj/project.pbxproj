@@ -31,6 +31,7 @@
 		7FD8E7C322D3E86A00B16F46 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */; };
 		7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */; };
 		7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */; };
+		7FDE306022DE312D008A5FA6 /* bluetooth-connecting.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FDE305F22DE312D008A5FA6 /* bluetooth-connecting.json */; };
 		C679A530FEA7322DDCC391FB /* Pods_Erised.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37313BBA390A2CCB5E50214 /* Pods_Erised.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		7FD8E7C222D3E86A00B16F46 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7FD8E7C422D3F95D00B16F46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7FD8E7C622D40F4300B16F46 /* HomeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileViewController.swift; sourceTree = "<group>"; };
+		7FDE305F22DE312D008A5FA6 /* bluetooth-connecting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "bluetooth-connecting.json"; sourceTree = "<group>"; };
 		B37313BBA390A2CCB5E50214 /* Pods_Erised.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Erised.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7854FE6D14B6E5AB3C52C90 /* Pods-Erised.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erised.release.xcconfig"; path = "Target Support Files/Pods-Erised/Pods-Erised.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 		7F9485B222C4B0D000F027A4 /* Erised */ = {
 			isa = PBXGroup;
 			children = (
+				7FDE305F22DE312D008A5FA6 /* bluetooth-connecting.json */,
 				7F042C7B22D63280002BB7FA /* Services */,
 				7F9485CD22C4B9B600F027A4 /* Models */,
 				7F9485C622C4B85B00F027A4 /* Stories */,
@@ -256,6 +259,7 @@
 				7F9485D022C4BB9100F027A4 /* Home.storyboard in Resources */,
 				7F9485BE22C4B0D100F027A4 /* LaunchScreen.storyboard in Resources */,
 				7F97AA3822D478B0008FA400 /* GoogleService-Info.plist in Resources */,
+				7FDE306022DE312D008A5FA6 /* bluetooth-connecting.json in Resources */,
 				7F236DAC22DCA1060044BF84 /* LaunchViewController.xib in Resources */,
 				7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */,
 				7F9485D922C4C00700F027A4 /* Configuration.storyboard in Resources */,
@@ -275,12 +279,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Erised/Pods-Erised-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
