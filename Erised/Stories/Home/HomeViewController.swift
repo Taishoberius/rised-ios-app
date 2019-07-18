@@ -173,6 +173,10 @@ class HomeViewController: UIViewController {
         self.activityIndicator.startAnimating()
         self.preferences = preference
         self.validateButtonAnimation(alpha: 0, enabled: false)
+        sendUpdatePreference()
+    }
+
+    private func sendUpdatePreference() {
         if preferences.token.isEmpty {
             refreshPreferencesBeforeUpdate()
             return

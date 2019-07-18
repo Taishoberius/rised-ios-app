@@ -78,30 +78,17 @@ class HomeProfileViewController: UIViewController {
         if address.isEmpty {
             return
         }
-        var addressDest = ""
-        var zipcode = ""
-        var city = ""
-        let split = address.split(separator: "|")
-        if split.count > 0 {
-            addressDest = split[0].description
-        }
-        if split.count > 1 {
-            zipcode = split[1].description
-        }
-        if split.count > 2 {
-            city = split[2].description
-        }
 
         switch type {
 
         case .work:
-            workAddress.text = addressDest
-            workZipcode.text = zipcode
-            workCity.text = city
+            workAddress.text = AddressManager.getAddress(address)
+            workZipcode.text = AddressManager.getZipCode(address)
+            workCity.text = AddressManager.getCity(address)
         case .home:
-            homeAddress.text = addressDest
-            homeZipcode.text = zipcode
-            homeCity.text = city
+            homeAddress.text = AddressManager.getAddress(address)
+            homeZipcode.text = AddressManager.getZipCode(address)
+            homeCity.text = AddressManager.getCity(address)
         }
     }
 }
