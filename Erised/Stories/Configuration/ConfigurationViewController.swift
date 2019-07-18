@@ -19,6 +19,8 @@ class ConfigurationViewController: UIViewController {
         configureButton.backgroundColor = UIColor.secondaryColor()
         mirrorButton.layer.cornerRadius = 15
         mirrorButton.backgroundColor = UIColor.secondaryColor()
+        hideKeyboardWhenTappedAround()
+        hideKeyboardWhenSwippedAround()
     }
 
     @IBAction func didtouchUse(_ sender: Any) {

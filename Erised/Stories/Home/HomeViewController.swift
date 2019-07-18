@@ -50,6 +50,8 @@ class HomeViewController: UIViewController {
         buttonValidate.alpha = 0
         activityIndicator.color = UIColor.infoColor()
         // Do any additional setup after loading the view.
+        hideKeyboardWhenTappedAround()
+        hideKeyboardWhenSwippedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
