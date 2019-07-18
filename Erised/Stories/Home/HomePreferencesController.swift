@@ -10,6 +10,8 @@ import UIKit
 
 class HomePreferencesController: UIViewController {
 
+    @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var newsLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var labels: [UILabel]!
     @IBOutlet weak var prefStackview: UIStackView!
@@ -22,6 +24,8 @@ class HomePreferencesController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherButton: UIButton!
     @IBOutlet weak var setAddressButton: UIButton!
+    @IBOutlet weak var noteButton: UIButton!
+    @IBOutlet weak var newsButton: UIButton!
     
     var delegate: PreferencesDelegate?
     
@@ -44,8 +48,12 @@ class HomePreferencesController: UIViewController {
     }
 
     func setupUI() {
+        tempLabel.alpha = 0.7
+        humidityLabel.alpha = 0.7
         setupLabel(tempLabel, userPref: preferences.temperature)
         setupLabel(humidityLabel, userPref: preferences.humidity)
+        setupLabel(notesLabel, userPref: preferences.notes)
+        setupLabel(newsLabel, userPref: preferences.news)
         setupItinerary(preferences.itinerary, transportType: TransportType.build(rawValue: preferences.transportType))
         setupWeather()
         buttons.forEach {
@@ -54,7 +62,7 @@ class HomePreferencesController: UIViewController {
             $0.layer.borderWidth = 2
         }
         labels.forEach {
-            $0.textColor = UIColor.secondaryColor()
+            $0.textColor = .white
         }
         setAddressButton.tintColor = UIColor.secondaryColor()
     }
@@ -93,6 +101,12 @@ class HomePreferencesController: UIViewController {
         if sender == itinéraryButton {
             onItineraryTouched()
         }
+        if sender == noteButton {
+            onNotestouched()
+        }
+        if sender == newsButton {
+            onNewstouched()
+        }
 
         setupUI()
     }
@@ -121,6 +135,14 @@ class HomePreferencesController: UIViewController {
 
     private func onHumiditytouched() {
         preferences.humidity = !preferences.humidity
+    }
+
+    private func onNewstouched() {
+        preferences.news = !preferences.news
+    }
+
+    private func onNotestouched() {
+        preferences.notes = !preferences.notes
     }
 
     private func onItineraryTouched() {
