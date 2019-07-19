@@ -260,6 +260,9 @@ extension HomeViewController: PreferencesDelegate {
         preferences.humidity == preference.humidity &&
         preferences.temperature == preference.temperature &&
         preferences.weather == preference.weather &&
-        preferences.transportType == preference.transportType
+        preferences.transportType == preference.transportType &&
+        preferences.news == preference.news &&
+        preferences.notes == preference.notes &&
+        preferences.notesText == preference.notesText
     }
 }

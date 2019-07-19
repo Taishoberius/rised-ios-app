@@ -193,7 +193,7 @@ class HomePreferencesController: UIViewController {
             otherView.alpha = 1
         }, completion: { _ in
             self.showedView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-            self.showedView = otherViewgitk
+            self.showedView = otherView
         })
     }
 

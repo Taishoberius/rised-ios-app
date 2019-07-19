@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-P0-uNB">
-                                <rect key="frame" x="0.0" y="178" width="414" height="624"/>
+                                <rect key="frame" x="0.0" y="178" width="414" height="614"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcL-pa-VvH">
@@ -99,7 +99,7 @@
                             <constraint firstItem="vGw-6F-iiQ" firstAttribute="width" secondItem="bH2-l8-SLP" secondAttribute="width" id="gyc-tQ-S13"/>
                             <constraint firstItem="UuJ-R2-CvZ" firstAttribute="leading" secondItem="nPb-uR-YHd" secondAttribute="leading" constant="-10" id="hjp-Pk-Zxb"/>
                             <constraint firstItem="bH2-l8-SLP" firstAttribute="width" secondItem="UuJ-R2-CvZ" secondAttribute="width" id="hpy-BZ-25n"/>
-                            <constraint firstItem="AcL-pa-VvH" firstAttribute="top" secondItem="Vze-P0-uNB" secondAttribute="bottom" id="leF-hk-8Yz"/>
+                            <constraint firstItem="AcL-pa-VvH" firstAttribute="top" secondItem="Vze-P0-uNB" secondAttribute="bottom" constant="10" id="leF-hk-8Yz"/>
                             <constraint firstItem="Vze-P0-uNB" firstAttribute="top" secondItem="UuJ-R2-CvZ" secondAttribute="bottom" constant="20" id="r7A-EY-eyh"/>
                             <constraint firstItem="vGw-6F-iiQ" firstAttribute="centerY" secondItem="bH2-l8-SLP" secondAttribute="centerY" id="x0S-B6-4Db"/>
                             <constraint firstItem="nPb-uR-YHd" firstAttribute="bottom" secondItem="AcL-pa-VvH" secondAttribute="bottom" id="zaD-Z6-vsK"/>
