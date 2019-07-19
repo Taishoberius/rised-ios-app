@@ -10,6 +10,10 @@ import UIKit
 
 class HomePreferencesController: UIViewController {
 
+    @IBOutlet weak var newsView: UIView!
+    @IBOutlet weak var newsTableView: UITableView!
+    @IBOutlet weak var reminderText: UITextView!
+    @IBOutlet weak var reminderView: UIView!
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var newsLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
@@ -30,6 +34,10 @@ class HomePreferencesController: UIViewController {
     var delegate: PreferencesDelegate?
     
     private var preferencesHasChanged = false
+    private var isReturn = false
+    private var news = [News]()
+    private var showedView: UIView!
+
     var preferences: Preferences! {
         didSet {
             if oldValue != nil {
@@ -40,10 +48,15 @@ class HomePreferencesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        reminderText.delegate = self
+        newsTableView.delegate = self
+        newsTableView.dataSource = self
+        fetchNews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        showedView = prefStackview
         setupUI()
     }
 
@@ -65,6 +78,13 @@ class HomePreferencesController: UIViewController {
             $0.textColor = .white
         }
         setAddressButton.tintColor = UIColor.secondaryColor()
+        reminderView.layer.cornerRadius = 15
+        reminderView.layer.borderWidth = 2
+        reminderView.layer.borderColor = UIColor.white.cgColor
+        newsView.layer.cornerRadius = 15
+        newsView.layer.borderWidth = 2
+        newsView.layer.borderColor = UIColor.white.cgColor
+        reminderText.text = preferences.notesText
     }
 
     private func setupLabel(_ label: UILabel ,userPref: Bool) {
@@ -123,6 +143,60 @@ class HomePreferencesController: UIViewController {
         delegate?.touchToothBrushNotification()
     }
 
+    @IBAction func didTouchReminder(_ sender: Any) {
+        if reminderView.alpha == 0 {
+            flipToView(option: .right, to: reminderView)
+            return
+        }
+
+        flipToView(option: .left, to: prefStackview)
+    }
+
+    @IBAction func didTouchNews(_ sender: Any) {
+        if newsView.alpha == 0 {
+            flipToView(option: .right, to: newsView)
+            return
+        }
+
+        flipToView(option: .left, to: prefStackview)
+    }
+
+    private enum FlipMode {
+        case left
+        case right
+    }
+
+    @IBAction func didTouchReminderClose(_ sender: Any) {
+        flipToView(option: .left, to: prefStackview)
+        saveReminder()
+    }
+
+    @IBAction func didtouchCloseNews(_ sender: Any) {
+        flipToView(option: .left, to: prefStackview)
+    }
+
+    private func flipToView(option: FlipMode, to otherView: UIView) {
+        if showedView == otherView {
+            return
+        }
+
+        let animation: UIView.AnimationOptions
+        if option == .right {
+            animation = .transitionFlipFromRight
+        } else {
+            animation = .transitionFlipFromLeft
+        }
+
+        UIView.animate(withDuration: 0.7, delay: 0, options: animation, animations: {
+            self.showedView.alpha = 0
+            self.showedView.transform = CGAffineTransform.init(scaleX: -1, y: 1)
+            otherView.alpha = 1
+        }, completion: { _ in
+            self.showedView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            self.showedView = otherViewgitk
+        })
+    }
+
     private func onWeatherTouched() {
         var weather = preferences.weather
         weather = weather == 5 ? 0 : weather + 1
@@ -161,5 +235,63 @@ class HomePreferencesController: UIViewController {
     private func setupAddressButton() {
         self.setAddressButton.isHidden = (preferences.itinerary &&  AddressManager.isAddressComplete(preferences.address) && AddressManager.isAddressComplete(preferences.workAddress)) || !preferences.itinerary
     }
+
+    func fetchNews() {
+        Service.instance.getNews {
+            self.news = $0
+            self.newsTableView.reloadData()
+        }
+    }
+}
+
+extension HomePreferencesController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+        if text == "\n" && isReturn {
+            saveReminder()
+        }
+
+        isReturn = text == "\n"
+
+        if textView.text.count > 280 {
+            return false
+        }
+
+        return true
+    }
+
+    func saveReminder() {
+        reminderText.resignFirstResponder()
+        preferences.notesText = reminderText.text
+    }
+}
+
+extension HomePreferencesController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+
+        guard let url = URL(string: news[indexPath.row].url) else {
+            return
+        }
+
+        UIApplication.shared.open(url, options: [:])
+    }
+}
+
+extension HomePreferencesController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+
+        cell.textLabel?.text = news[indexPath.row].title
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
+
+        return cell
+    }
+
 
 }

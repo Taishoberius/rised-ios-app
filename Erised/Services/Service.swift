@@ -73,4 +73,18 @@ class Service {
             response(true)
         }
     }
+
+    func getNews(response: @escaping ([News]) -> Void) {
+        Alamofire.request("https://newsapi.org/v2/top-headlines?country=fr&apiKey=2dc6c5a025a74548b3b2729040e8bd54", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON {
+
+                guard
+                    let data = $0.data,
+                    let newsList = try? JSONDecoder().decode(NewsList.self, from: data) else {
+                        response([News]())
+                        return
+                }
+
+                response(newsList.articles)
+            }
+    }
 }

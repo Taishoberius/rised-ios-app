@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F042C7D22D63299002BB7FA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F042C7C22D63299002BB7FA /* Service.swift */; };
+		7F218D8822E1D2E0001ECA57 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F218D8722E1D2E0001ECA57 /* News.swift */; };
+		7F218D8A22E1D34E001ECA57 /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F218D8922E1D34E001ECA57 /* NewsList.swift */; };
 		7F236DAB22DCA1060044BF84 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F236DA922DCA1060044BF84 /* LaunchViewController.swift */; };
 		7F236DAC22DCA1060044BF84 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F236DAA22DCA1060044BF84 /* LaunchViewController.xib */; };
 		7F33289C22C5789000DB0F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F33289B22C5789000DB0F4D /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		163B728DBB3215B164B6DB6C /* Pods-Erised.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Erised.debug.xcconfig"; path = "Target Support Files/Pods-Erised/Pods-Erised.debug.xcconfig"; sourceTree = "<group>"; };
 		7F042C7C22D63299002BB7FA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7F218D8722E1D2E0001ECA57 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		7F218D8922E1D34E001ECA57 /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		7F236DA922DCA1060044BF84 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		7F236DAA22DCA1060044BF84 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		7F33289B22C5789000DB0F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			children = (
 				7F43E8B222D28B7200F1C087 /* Preferences.swift */,
 				7F43E8B622D28C3000F1C087 /* TransportType.swift */,
+				7F218D8722E1D2E0001ECA57 /* News.swift */,
+				7F218D8922E1D34E001ECA57 /* NewsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 				7F43E8B322D28B7200F1C087 /* Preferences.swift in Sources */,
 				7F9485C822C4B86E00F027A4 /* AppStoryboard.swift in Sources */,
 				7FD8E7C722D40F4300B16F46 /* HomeProfileViewController.swift in Sources */,
+				7F218D8A22E1D34E001ECA57 /* NewsList.swift in Sources */,
+				7F218D8822E1D2E0001ECA57 /* News.swift in Sources */,
 				7F9485CA22C4B8B900F027A4 /* UiViewControllerStoryboardExtended.swift in Sources */,
 				7F236DAB22DCA1060044BF84 /* LaunchViewController.swift in Sources */,
 				7FD8E7C522D3F95D00B16F46 /* HomeViewController.swift in Sources */,
